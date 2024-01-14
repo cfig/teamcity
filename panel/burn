@@ -1,0 +1,8 @@
+#!/bin/zsh
+if [ "$#" -ne "2" ]; then
+    echo "param should be 2"
+    exit 1
+fi
+theCmd=$2 make -C /home/yu/work/teamcity/$1 burn
+theCmd=$2 make -C /home/yu/work/teamcity/$1 boot
+

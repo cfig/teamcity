@@ -1,0 +1,27 @@
+{
+  "name" : "ttyUSB0",
+  "baudRate" : 9600,
+  "descriptor" : null,
+  "opList" : [
+   {
+    "expect" : "DHCP client bound",
+    "cmd" : null
+   },
+   {
+    "expect" : "Berlin>",
+    "cmd" : "tftp2emmc emmc\n"
+   },
+   {
+    "expect" : "Burn images OK",
+    "cmd" : null
+   },
+   {
+    "expect" : "time elapse",
+    "cmd" : null
+   },
+   {
+    "expect" : "Berlin>",
+    "cmd" : "reset\n"
+   }
+  ]
+}

@@ -1,0 +1,127 @@
+pipeline {
+  agent {
+    node {
+      label '100'
+    }
+
+  }
+  stages {
+    stage('repo init') {
+      parallel {
+        stage('speak') {
+          steps {
+            echo "projectName is ${currentBuild.projectName}"
+            echo "id is ${currentBuild.id}"
+            sh "echo Running ${env.JOB_NAME} #${env.BUILD_ID} on ${env.JENKINS_URL}"
+          }
+        }
+
+        stage('init Android') {
+          steps {
+            sh "theCmd=${env.proj} make android_init_${env.proj}"
+          }
+        }
+
+        stage('init SDK') {
+          steps {
+            sh "theCmd=${env.proj} make sdk_init_${env.proj}"
+          }
+        }
+
+        stage('gradle_task') {
+          steps {
+            withGradle() {
+              sh 'gradle -version'
+            }
+
+          }
+        }
+
+      }
+    }
+
+    stage('clean code') {
+      parallel {
+        stage('clean Android') {
+          steps {
+            sh "theCmd=${env.proj} make android_s_clean"
+          }
+        }
+
+        stage('clean SDK') {
+          steps {
+            sh "theCmd=${env.proj} make sdk_clean"
+          }
+        }
+
+      }
+    }
+
+    stage('msg') {
+      steps {
+        echo 'code base prepared'
+      }
+    }
+
+    stage('update code') {
+      parallel {
+        stage('repo sync Android') {
+          steps {
+            retry(count: 3) {
+              sh "theCmd=${env.proj} make android_s_sync"
+            }
+          }
+        }
+
+        stage('repo sync SDK') {
+          steps {
+            retry(count: 2) {
+              sh "theCmd=${env.proj} make sdk_sync"
+            }
+
+          }
+        }
+
+      }
+    }
+
+    stage('post update code') {
+      parallel {
+        stage('post update Android') {
+          steps {
+            sh "theCmd=${env.proj} make android_post_sync_${env.proj}"
+          }
+        }
+
+        stage('post update SDK') {
+          steps {
+            sh "theCmd=${env.proj} make sdk_post_sync"
+          }
+        }
+
+      }
+    }
+
+    stage('pre compile') {
+      steps {
+        sh "theCmd=${env.proj} make pre_compile_${env.proj}"
+      }
+    }
+
+    stage('compile') {
+      steps {
+        sh "theCmd=${env.proj} make android_build_${env.proj}"
+      }
+    }
+
+    stage('post compile') {
+      steps {
+        echo "ALL DONE"
+      }
+    }
+
+  }
+  environment {
+    proj = 'platypus_S_GMS_30'
+  }
+}

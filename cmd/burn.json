@@ -1,0 +1,35 @@
+{
+  "name" : "ttyUSB1",
+  "baudRate" : 115200,
+  "descriptor" : null,
+  "opList" : [
+   {
+    "expect" : "DHCP client bound",
+    "cmd" : null
+   },
+   {
+    "expect" : "Berlin>",
+    "cmd" : "set serverip 192.168.2.30\n"
+   },
+   {
+    "expect" : "Berlin>",
+    "cmd" : "print\n"
+   },
+   {
+    "expect" : "Berlin>",
+    "cmd" : "tftp2emmc emmc\n"
+   },
+   {
+    "expect" : "Burn images OK",
+    "cmd" : null
+   },
+   {
+    "expect" : "time elapse",
+    "cmd" : null
+   },
+   {
+    "expect" : "Berlin>",
+    "cmd" : "reset\n"
+   }
+  ]
+}

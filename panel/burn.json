@@ -1,0 +1,31 @@
+{
+  "name" : null,
+  "baudRate" : 115200,
+  "descriptor" : "cp210x",
+  "opList" : [
+   {
+    "expect" : " client bound to",
+    "cmd" : null
+   },
+   {
+    "expect" : "=>",
+    "cmd" : "set serverip 192.168.3.6\n"
+   },
+   {
+    "expect" : "=>",
+    "cmd" : "print\n"
+   },
+   {
+    "expect" : "=>",
+    "cmd" : "tftp2emmc emmc\n"
+   },
+   {
+    "expect" : "list2emmc success",
+    "cmd" : null
+   },
+   {
+    "expect" : "=>",
+    "cmd" : "reset\n"
+   }
+  ]
+}

@@ -1,0 +1,127 @@
+pipeline {
+  agent {
+    node {
+      label '05'
+    }
+
+  }
+  stages {
+    stage('repo init') {
+      parallel {
+        stage('speak') {
+          steps {
+            echo "projectName is ${currentBuild.projectName}"
+            echo "id is ${currentBuild.id}"
+            sh "echo Running ${env.JOB_NAME} #${env.BUILD_ID} on ${env.JENKINS_URL}"
+          }
+        }
+
+        stage('init Android') {
+          steps {
+            echo "init nothing"
+          }
+        }
+
+        stage('init SDK') {
+          steps {
+            echo "init nothing"
+          }
+        }
+
+        stage('gradle_task') {
+          steps {
+            withGradle() {
+              sh 'gradle -version'
+            }
+
+          }
+        }
+
+      }
+    }
+
+    stage('clean code') {
+      parallel {
+        stage('clean Android') {
+          steps {
+            echo "clean nothing"
+          }
+        }
+
+        stage('clean SDK') {
+          steps {
+            echo "clean nothing"
+          }
+        }
+
+      }
+    }
+
+    stage('msg') {
+      steps {
+        echo 'code base prepared'
+      }
+    }
+
+    stage('update code') {
+      parallel {
+        stage('repo sync Android') {
+          steps {
+            echo 'sync nothing'
+          }
+        }
+
+        stage('repo sync SDK') {
+          steps {
+            echo 'sync nothing'
+          }
+        }
+
+      }
+    }
+
+    stage('post update code') {
+      parallel {
+        stage('post update Android') {
+          steps {
+            echo 'do nothing'
+          }
+        }
+
+        stage('post update SDK') {
+          steps {
+            echo 'do nothing'
+          }
+        }
+
+      }
+    }
+
+    stage('pre compile') {
+      steps {
+        echo 'do nothing'
+      }
+    }
+
+    stage('compile') {
+      steps {
+        sh "theCmd=${env.proj} make defconfig_${env.proj}"
+      }
+    }
+
+    stage('post compile') {
+      steps {
+        echo "ALL DONE"
+      }
+    }
+
+  }
+  environment {
+    proj = 'defconfig'
+    SOONG_GEN_CMAKEFILES = '1'
+    SOONG_GEN_CMAKEFILES_DEBUG = '1'
+    SOONG_GEN_COMPDB = '1'
+    SOONG_GEN_COMPDB_DEBUG = '1'
+  }
+}
+
