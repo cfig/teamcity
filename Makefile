@@ -400,10 +400,12 @@ sdk_init_dolphin_110_GMS: sdk_110_init
 android_post_sync_dolphin_110_GMS:
 	# android
 	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/35/195835/23 && git cherry-pick FETCH_HEAD
+	# bd cfg
+	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/wireless && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/wireless refs/changes/81/204581/1 && git cherry-pick FETCH_HEAD
 	# linux
-	cd $(HOME)/city/$(theCmd)/s/linux_5_4 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux refs/changes/54/201354/4 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/s/linux_5_4 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux refs/changes/62/201862/2 && git cherry-pick FETCH_HEAD
 	# fw
-	cd $(HOME)/city/$(theCmd)/s/linux_5_4 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux refs/changes/62/201862/1 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/s/linux_5_4 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux refs/changes/54/201354/10 && git cherry-pick FETCH_HEAD
 	echo SKIP
 pre_compile_dolphin_110_GMS: pre_compile_s
 	echo $@ DONE
