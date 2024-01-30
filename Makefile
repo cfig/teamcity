@@ -243,8 +243,6 @@ android_init_dolphin_S_GMS: android_s_gms_init
 sdk_init_dolphin_S_GMS: sdk_init
 	echo DONE
 android_post_sync_dolphin_S_GMS:
-	#cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/dolphin && repo download 182592
-	#cd $(HOME)/city/$(theCmd)/s/boot/security/images && repo download 181520
 	echo DONE
 pre_compile_dolphin_S_GMS: pre_compile_s
 	echo $@ DONE
@@ -403,7 +401,7 @@ pre_compile_dolphin_110_GMS: pre_compile_s
 	echo $@ DONE
 android_build_dolphin_110_GMS:
 	cd $(HOME)/city/$(theCmd)/android_s && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/platypus/configs/platypus_sl \
+		-p vendor/synaptics/dolphin/configs/dolphin_sl \
 		-m ../s
 
 # bg5ct_s
