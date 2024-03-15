@@ -417,7 +417,7 @@ pre_compile_bg5ct_s: pre_compile_s
 	echo $@ DONE
 android_build_bg5ct_s:
 	cd $(HOME)/city/$(theCmd)/android_s && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/sequoia/configs/sequoia_ql_v4 \
+		-p vendor/synaptics/sequoia/configs/sequoia_ql_ab_v4 \
 		-m ../s
 
 # SKB-AI2: q_sequoia_ql_v4
