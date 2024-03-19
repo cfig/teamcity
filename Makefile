@@ -243,12 +243,16 @@ android_init_dolphin_S_GMS: android_s_gms_init
 sdk_init_dolphin_S_GMS: sdk_init
 	echo DONE
 android_post_sync_dolphin_S_GMS:
+	# profile
+	# dts
+	# uboot
+	# bootloader
 	echo DONE
 pre_compile_dolphin_S_GMS: pre_compile_s
 	echo $@ DONE
 android_build_dolphin_S_GMS:
 	cd $(HOME)/city/$(theCmd)/android_s && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/dolphin_sl \
+		-p vendor/synaptics/dolphin/configs/dolphin_sl_rdk \
 		-m ../s
 
 # dolphin_T_AOSP_33
