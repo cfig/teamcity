@@ -140,13 +140,12 @@ android_init_platypus_S_AOSP_31: android_s_aosp_init
 sdk_init_platypus_S_AOSP_31: sdk_init
 	echo DONE
 android_post_sync_platypus_S_AOSP_31:
-	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/netflix && repo download 179316
 	echo SKIP
 pre_compile_platypus_S_AOSP_31: pre_compile_s
 	echo $@ DONE
 android_build_platypus_S_AOSP_31:
 	cd $(HOME)/city/$(theCmd)/android_s && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/platypus/configs/aosp_platypus_sl \
+		-p vendor/synaptics/platypus/configs/aosp_platypus_sl_rdk \
 		-m ../s
 
 # platypus_S_GMS_31
