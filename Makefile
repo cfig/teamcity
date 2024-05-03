@@ -41,7 +41,8 @@ android_r_sync:
 	cd $(HOME)/city/$(theCmd)/android_r && repo sync --force-sync
 android_s_sync:
 	cd $(HOME)/city/$(theCmd)/android_s && repo sync --force-sync
-	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/overlays && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/marvell/overlays refs/changes/39/221839/1 && git cherry-pick FETCH_HEAD
+	# go build
+	#cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/overlays && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/marvell/overlays refs/changes/39/221839/1 && git cherry-pick FETCH_HEAD
 android_t_sync:
 	cd $(HOME)/city/$(theCmd)/android_t && repo sync --force-sync
 android_u_sync:
