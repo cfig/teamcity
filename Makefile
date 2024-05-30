@@ -276,6 +276,8 @@ sdk_init_dolphin_U_AOSP_34: sdk_init
 android_post_sync_dolphin_U_AOSP_34:
 	echo SKIP
 pre_compile_dolphin_U_AOSP_34: pre_compile_u u_common
+	cd $(HOME)/city/$(theCmd)/s/linux_5_15 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux refs/changes/23/225623/4 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/android_u/device/synaptics/dolphin && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/dolphin refs/changes/84/225584/5 && git cherry-pick FETCH_HEAD
 	echo $@ DONE
 android_build_dolphin_U_AOSP_34:
 	cd $(HOME)/city/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
