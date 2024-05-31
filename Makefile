@@ -291,7 +291,7 @@ sdk_init_dolphin_U_GMS_34: sdk_init
 	echo DONE
 android_post_sync_dolphin_U_GMS_34:
 	echo SKIP
-pre_compile_dolphin_U_GMS_34: pre_compile_u u_common
+sdk_post_sync_dolphin_U_GMS_34: sdk_post_sync
 	cd $(HOME)/city/$(theCmd)/s/linux_5_15 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux refs/changes/23/225623/4 && git cherry-pick FETCH_HEAD
 	cd $(HOME)/city/$(theCmd)/android_u/device/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/74/225774/9 && git cherry-pick FETCH_HEAD
 	echo $@ DONE

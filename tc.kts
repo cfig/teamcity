@@ -188,6 +188,6 @@ if (proj == "sdk_defconfig") {
     check_call("make android_${droid}_sync theCmd=$proj")
     check_call("make sdk_sync theCmd=$proj")
     check_call("make android_post_sync_$proj theCmd=$proj")
-    check_call("make sdk_post_sync theCmd=$proj")
+    check_call("make sdk_post_sync_$proj theCmd=$proj")
     check_call("make android_build_$proj theCmd=$proj")
 }
