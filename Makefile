@@ -275,6 +275,8 @@ sdk_init_dolphin_U_AOSP_34: sdk_init
 	echo DONE
 android_post_sync_dolphin_U_AOSP_34:
 	echo SKIP
+sdk_post_sync_dolphin_U_AOSP_34:
+	echo SKIP
 pre_compile_dolphin_U_AOSP_34: pre_compile_u u_common
 	echo $@ DONE
 android_build_dolphin_U_AOSP_34:
