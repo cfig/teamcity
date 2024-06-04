@@ -247,6 +247,8 @@ sdk_init_dolphin_S_GMS: sdk_init
 	echo DONE
 android_post_sync_dolphin_S_GMS:
 	echo DONE
+sdk_post_sync_dolphin_S_GMS:
+	echo DONE
 pre_compile_dolphin_S_GMS: pre_compile_s
 	echo $@ DONE
 android_build_dolphin_S_GMS:
