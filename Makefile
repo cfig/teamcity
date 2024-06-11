@@ -404,6 +404,8 @@ sdk_init_dolphin_110_GMS: sdk_110_init
 	echo DONE
 android_post_sync_dolphin_110_GMS:
 	echo SKIP
+sdk_post_sync_dolphin_110_GMS:
+	echo SKIP
 pre_compile_dolphin_110_GMS: pre_compile_s
 	echo $@ DONE
 android_build_dolphin_110_GMS:
