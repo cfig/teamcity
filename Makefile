@@ -248,6 +248,7 @@ sdk_init_dolphin_S_GMS: sdk_init
 android_post_sync_dolphin_S_GMS:
 	echo DONE
 sdk_post_sync_dolphin_S_GMS: sdk_post_sync
+	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/dolphin && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/dolphin refs/changes/99/231499/1 && git cherry-pick FETCH_HEAD
 	echo DONE
 pre_compile_dolphin_S_GMS: pre_compile_s
 	echo $@ DONE
