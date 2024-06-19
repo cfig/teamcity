@@ -405,12 +405,14 @@ sdk_init_dolphin_110_GMS: sdk_110_init
 android_post_sync_dolphin_110_GMS:
 	echo SKIP
 sdk_post_sync_dolphin_110_GMS: sdk_post_sync
+	cd $(HOME)/city/$(theCmd)/android_s/device/synaptics/platypus && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/09/230409/2 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/common && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/04/230404/2 && git cherry-pick FETCH_HEAD
 	echo SKIP
 pre_compile_dolphin_110_GMS: pre_compile_s
 	echo $@ DONE
 android_build_dolphin_110_GMS:
 	cd $(HOME)/city/$(theCmd)/android_s && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/dolphin_sl \
+		-p vendor/synaptics/platypus/configs/platypus_sl \
 		-m ../s
 
 # bg5ct_s
