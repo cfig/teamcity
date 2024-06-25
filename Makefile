@@ -296,18 +296,18 @@ android_post_sync_dolphin_U_GMS_34:
 	echo SKIP
 sdk_post_sync_dolphin_U_GMS_34: sdk_post_sync
 	echo $@ DONE
-	# platypus
-	cd $(HOME)/city/$(theCmd)/android_u/device/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/74/225774/15 && git cherry-pick FETCH_HEAD
-	# dolphin
-	cd $(HOME)/city/$(theCmd)/android_u/device/synaptics/dolphin && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/dolphin refs/changes/84/225584/13 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/android_u/vendor/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/99/231999/2 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/s/boot/bootloader && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/bootloader refs/changes/93/230593/4 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/s/configs && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/mms/vssdk/configs refs/changes/59/230259/4 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/s/boot/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/common refs/changes/78/230578/1 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/android_u/device/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/common refs/changes/94/231994/1 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/s/build && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/mms/vssdk/top refs/changes/04/230504/1 && git cherry-pick FETCH_HEAD
+	## platypus
+	#cd $(HOME)/city/$(theCmd)/android_u/device/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/74/225774/15 && git cherry-pick FETCH_HEAD
+	## dolphin
+	#cd $(HOME)/city/$(theCmd)/android_u/device/synaptics/dolphin && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/dolphin refs/changes/84/225584/13 && git cherry-pick FETCH_HEAD
+	#cd $(HOME)/city/$(theCmd)/android_u/vendor/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/99/231999/2 && git cherry-pick FETCH_HEAD
+	#cd $(HOME)/city/$(theCmd)/s/boot/bootloader && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/bootloader refs/changes/93/230593/4 && git cherry-pick FETCH_HEAD
+	#cd $(HOME)/city/$(theCmd)/s/configs && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/mms/vssdk/configs refs/changes/59/230259/4 && git cherry-pick FETCH_HEAD
+	#cd $(HOME)/city/$(theCmd)/s/boot/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/common refs/changes/78/230578/1 && git cherry-pick FETCH_HEAD
+	#cd $(HOME)/city/$(theCmd)/android_u/device/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/common refs/changes/94/231994/1 && git cherry-pick FETCH_HEAD
+	#cd $(HOME)/city/$(theCmd)/s/build && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/mms/vssdk/top refs/changes/04/230504/1 && git cherry-pick FETCH_HEAD
 android_build_dolphin_U_GMS_34:
-	cd $(HOME)/city/$(theCmd)/s/linux_5_15 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux refs/changes/39/232039/1 && git cherry-pick FETCH_HEAD
+	#cd $(HOME)/city/$(theCmd)/s/linux_5_15 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux refs/changes/39/232039/1 && git cherry-pick FETCH_HEAD
 	cd $(HOME)/city/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
 		-p vendor/synaptics/dolphin/configs/aosp_dolphin_ul \
 		-m ../s
