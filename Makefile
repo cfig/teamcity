@@ -282,7 +282,7 @@ pre_compile_dolphin_U_AOSP_34: pre_compile_u u_common
 	echo $@ DONE
 android_build_dolphin_U_AOSP_34:
 	cd $(HOME)/city/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/aosp_dolphin_ul \
+		-p vendor/synaptics/platypus/configs/aosp_platypus_ul \
 		-m ../s
 
 # dolphin_U_GMS_34
