@@ -58,6 +58,8 @@ sdk_post_sync:
 	test -d $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-9.3.0-poky  && git -C $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-9.3.0-poky  lfs pull || exit 0
 	test -d $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-11.3.0-poky && git -C $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-11.3.0-poky lfs pull || exit 0
 	cd $(HOME)/city/$(theCmd)/s/build && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/mms/vssdk/top refs/changes/94/180594/1 && git cherry-pick FETCH_HEAD
+sdk_post_sync_U:
+	test -d $(HOME)/city/$(theCmd)/s/linux_5_15 && git -C $(HOME)/city/$(theCmd)/s/linux_5_15 lfs pull || exit 0
 
 android_r_clean:
 	cd $(HOME)/city/$(theCmd)/android_r && repo forall -c "git reset --hard"; exit 0
@@ -276,7 +278,7 @@ sdk_init_dolphin_U_AOSP_34: sdk_init
 	echo DONE
 android_post_sync_dolphin_U_AOSP_34:
 	echo SKIP
-sdk_post_sync_dolphin_U_AOSP_34: sdk_post_sync
+sdk_post_sync_dolphin_U_AOSP_34: sdk_post_sync sdk_post_sync_U
 	echo SKIP
 pre_compile_dolphin_U_AOSP_34: pre_compile_u u_common
 	echo $@ DONE
@@ -292,7 +294,7 @@ sdk_init_dolphin_U_GMS_34: sdk_init
 	echo DONE
 android_post_sync_dolphin_U_GMS_34:
 	echo SKIP
-sdk_post_sync_dolphin_U_GMS_34: sdk_post_sync
+sdk_post_sync_dolphin_U_GMS_34: sdk_post_sync sdk_post_sync_U
 	echo $@ DONE
 android_build_dolphin_U_GMS_34:
 	cd $(HOME)/city/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
