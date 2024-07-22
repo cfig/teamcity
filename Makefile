@@ -254,7 +254,7 @@ pre_compile_dolphin_S_GMS: pre_compile_s
 	echo $@ DONE
 android_build_dolphin_S_GMS:
 	cd $(HOME)/city/$(theCmd)/android_s && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/dolphin_sl \
+		-p vendor/synaptics/platypus/configs/platypus_sl \
 		-m ../s
 
 # dolphin_T_AOSP_33
