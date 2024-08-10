@@ -57,7 +57,7 @@ sdk_post_sync:
 	test -d $(HOME)/city/$(theCmd)/s/synap/vsi_npu_sw_stack && git -C $(HOME)/city/$(theCmd)/s/synap/vsi_npu_sw_stack lfs pull || exit 0
 	test -d $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-9.3.0-poky  && git -C $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-9.3.0-poky  lfs pull || exit 0
 	test -d $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-11.3.0-poky && git -C $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-11.3.0-poky lfs pull || exit 0
-	cd $(HOME)/city/$(theCmd)/s/build && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/mms/vssdk/top refs/changes/94/180594/1 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/s/build && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/mms/vssdk/top refs/changes/94/180594/1 && git cherry-pick FETCH_HEAD
 sdk_post_sync_U:
 	test -d $(HOME)/city/$(theCmd)/s/linux_5_15 && git -C $(HOME)/city/$(theCmd)/s/linux_5_15 lfs pull || exit 0
 
@@ -128,9 +128,9 @@ android_init_musen: musen_android_init
 sdk_init_musen: musen_sdk_init
 	echo DONE
 android_post_sync_musen:
-	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/platypus refs/changes/04/185404/1 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/android_s/device/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/33/185533/2 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/27/185527/2 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/platypus && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/platypus refs/changes/04/185404/1 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/android_s/device/synaptics/platypus && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/33/185533/2 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/common && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/27/185527/2 && git cherry-pick FETCH_HEAD
 	echo SKIP
 pre_compile_musen: pre_compile_s
 	echo $@ DONE
@@ -293,7 +293,7 @@ android_init_dolphin_U_GMS_34: android_u_gms_init
 sdk_init_dolphin_U_GMS_34: sdk_init
 	echo DONE
 android_post_sync_dolphin_U_GMS_34:
-	cd $(HOME)/city/$(theCmd)/s/linux_5_15 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux refs/changes/95/235195/1 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/s/linux_5_15 && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/debu/common/linux refs/changes/95/235195/1 && git cherry-pick FETCH_HEAD
 	echo SKIP
 sdk_post_sync_dolphin_U_GMS_34: sdk_post_sync sdk_post_sync_U
 	echo $@ DONE
