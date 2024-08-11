@@ -57,7 +57,7 @@ sdk_post_sync:
 	test -d $(HOME)/city/$(theCmd)/s/synap/vsi_npu_sw_stack && git -C $(HOME)/city/$(theCmd)/s/synap/vsi_npu_sw_stack lfs pull || exit 0
 	test -d $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-9.3.0-poky  && git -C $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-9.3.0-poky  lfs pull || exit 0
 	test -d $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-11.3.0-poky && git -C $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-11.3.0-poky lfs pull || exit 0
-	cd $(HOME)/city/$(theCmd)/s/build && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/mms/vssdk/top refs/changes/94/180594/1 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/s/build && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/mms/vssdk/top refs/changes/94/180594/1 && git cherry-pick FETCH_HEAD
 sdk_post_sync_U:
 	test -d $(HOME)/city/$(theCmd)/s/linux_5_15 && git -C $(HOME)/city/$(theCmd)/s/linux_5_15 lfs pull || exit 0
 
@@ -78,33 +78,33 @@ sdk_clean:
 	cd $(HOME)/city/$(theCmd)/s && repo forall -c "git clean -xdf"; exit 0
 
 android_r_aosp_init: | $(HOME)/city/$(theCmd)/android_r
-	cd $(HOME)/city/$(theCmd)/android_r && repo init -u ssh://gerrit-sha.synaptics.com:29420/by-projects/android/manifests -b rel_branch/vssdk/v1.7/202108201205 -m syna-r-aosp.xml
+	cd $(HOME)/city/$(theCmd)/android_r && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b rel_branch/vssdk/v1.7/202108201205 -m syna-r-aosp.xml
 android_r_gms_init: | $(HOME)/city/$(theCmd)/android_r
-	cd $(HOME)/city/$(theCmd)/android_r && repo init -u ssh://gerrit-sha.synaptics.com:29420/by-projects/android/manifests -b rel_branch/vssdk/v1.7/202108201205 -m syna-r-tv-dev.xml
+	cd $(HOME)/city/$(theCmd)/android_r && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b rel_branch/vssdk/v1.7/202108201205 -m syna-r-tv-dev.xml
 android_s_gms_init: | $(HOME)/city/$(theCmd)/android_s
-	cd $(HOME)/city/$(theCmd)/android_s && repo init -u ssh://gerrit-sha.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_s/master -m syna-s-tv-dev.xml
+	cd $(HOME)/city/$(theCmd)/android_s && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_s/master -m syna-s-tv-dev.xml
 android_s_aosp_init: | $(HOME)/city/$(theCmd)/android_s
-	cd $(HOME)/city/$(theCmd)/android_s && repo init -u ssh://gerrit-sha.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_s/master -m syna-s-aosp.xml
+	cd $(HOME)/city/$(theCmd)/android_s && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_s/master -m syna-s-aosp.xml
 musen_android_init: | $(HOME)/city/$(theCmd)/android_s
-	cd $(HOME)/city/$(theCmd)/android_s && repo init -u ssh://gerrit-sha.synaptics.com:29420/by-projects/android/manifests -b wip_branch/vssdk/android_s/vs640/vssdk.ppd/202304131205 -m syna-s-aosp.xml
+	cd $(HOME)/city/$(theCmd)/android_s && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b wip_branch/vssdk/android_s/vs640/vssdk.ppd/202304131205 -m syna-s-aosp.xml
 android_t_gms_init: | $(HOME)/city/$(theCmd)/android_t
-	cd $(HOME)/city/$(theCmd)/android_t && repo init -u ssh://gerrit-sha.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_t/master -m syna-tv-dev.xml
+	cd $(HOME)/city/$(theCmd)/android_t && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_t/master -m syna-tv-dev.xml
 android_u_aosp_init: | $(HOME)/city/$(theCmd)/android_u
-	cd $(HOME)/city/$(theCmd)/android_u  && repo init -u ssh://gerrit-sha.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-aosp.xml
+	cd $(HOME)/city/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-aosp.xml
 android_u_gms_init: | $(HOME)/city/$(theCmd)/android_u
-	cd $(HOME)/city/$(theCmd)/android_u  && repo init -u ssh://gerrit-sha.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-tv-dev.xml
+	cd $(HOME)/city/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-tv-dev.xml --depth=100
 android_t_aosp_init: | $(HOME)/city/$(theCmd)/android_t
-	cd $(HOME)/city/$(theCmd)/android_t && repo init -u ssh://gerrit-sha.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_t/master -m syna-aosp.xml
+	cd $(HOME)/city/$(theCmd)/android_t && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_t/master -m syna-aosp.xml
 android_110_gms_init: | $(HOME)/city/$(theCmd)/android_s
-	cd $(HOME)/city/$(theCmd)/android_s && repo init -u ssh://gerrit-sha.synaptics.com:29420/by-projects/android/manifests -b rel_branch/vssdk/v1.10.1/202301101805 -m syna-s-tv-dev.xml
+	cd $(HOME)/city/$(theCmd)/android_s && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b rel_branch/vssdk/v1.10.1/202301101805 -m syna-s-tv-dev.xml
 sdk_r_init: | $(HOME)/city/$(theCmd)/s
-	cd $(HOME)/city/$(theCmd)/s && repo init -u ssh://gerrit-sha.synaptics.com:29420/debu/manifest -b rel_branch/vssdk/v1.7/202108201205 -m vssdk.xml
+	cd $(HOME)/city/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b rel_branch/vssdk/v1.7/202108201205 -m vssdk.xml
 sdk_110_init: | $(HOME)/city/$(theCmd)/s
-	cd $(HOME)/city/$(theCmd)/s && repo init -u ssh://gerrit-sha.synaptics.com:29420/debu/manifest -b rel_branch/vssdk/v1.10.1/202301101805 -m vssdk.xml
+	cd $(HOME)/city/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b rel_branch/vssdk/v1.10.1/202301101805 -m vssdk.xml
 sdk_init: | $(HOME)/city/$(theCmd)/s
-	cd $(HOME)/city/$(theCmd)/s && repo init -u ssh://gerrit-sha.synaptics.com:29420/debu/manifest -b dev_branch/master -m vssdk.xml
+	cd $(HOME)/city/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b dev_branch/master -m vssdk.xml
 musen_sdk_init: | $(HOME)/city/$(theCmd)/s
-	cd $(HOME)/city/$(theCmd)/s && repo init -u ssh://gerrit-sha.synaptics.com:29420/debu/manifest -b wip_branch/vssdk/android_s/vs640/vssdk.ppd/202304131205 -m vssdk.xml
+	cd $(HOME)/city/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b wip_branch/vssdk/android_s/vs640/vssdk.ppd/202304131205 -m vssdk.xml
 pre_compile_r:
 	cd $(HOME)/city/$(theCmd)/android_r && rm -fr out
 	cd $(HOME)/city/$(theCmd)/s && rm -fr out
@@ -128,9 +128,9 @@ android_init_musen: musen_android_init
 sdk_init_musen: musen_sdk_init
 	echo DONE
 android_post_sync_musen:
-	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/platypus refs/changes/04/185404/1 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/android_s/device/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/33/185533/2 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/27/185527/2 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/platypus && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/platypus refs/changes/04/185404/1 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/android_s/device/synaptics/platypus && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/33/185533/2 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/common && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/27/185527/2 && git cherry-pick FETCH_HEAD
 	echo SKIP
 pre_compile_musen: pre_compile_s
 	echo $@ DONE
@@ -211,10 +211,10 @@ android_build_platypus_T_GMS_31:
 
 # orca_S_GMS_31
 android_init_orca_S_GMS_31: | $(HOME)/city/$(theCmd)/android_s
-	cd $(HOME)/city/$(theCmd)/android_s && repo init -u ssh://gerrit-sha.synaptics.com:29420/by-projects/android/manifests -b wip_branch/vssdk/android_s/vs640/google_cert/202209221605 -m syna-s-tv-dev.xml
+	cd $(HOME)/city/$(theCmd)/android_s && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b wip_branch/vssdk/android_s/vs640/google_cert/202209221605 -m syna-s-tv-dev.xml
 	echo DONE
 sdk_init_orca_S_GMS_31: | $(HOME)/city/$(theCmd)/s
-	cd $(HOME)/city/$(theCmd)/s && repo init -u ssh://gerrit-sha.synaptics.com:29420/debu/manifest -b wip_branch/vssdk/android_s/vs640/google_cert/202209221605 -m vssdk.xml
+	cd $(HOME)/city/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b wip_branch/vssdk/android_s/vs640/google_cert/202209221605 -m vssdk.xml
 	echo DONE
 android_post_sync_orca_S_GMS_31:
 	echo SKIP
@@ -227,10 +227,10 @@ android_build_orca_S_GMS_31:
 
 # sequoia_S_GMS_29
 android_init_sequoia_S_GMS_29: | $(HOME)/city/$(theCmd)/android_s
-	cd $(HOME)/city/$(theCmd)/android_s && repo init -u ssh://gerrit-sha.synaptics.com:29420/by-projects/android/manifests -b wip_branch/vssdk/android_s/vs550/google_cert/202204291605 -m syna-s-tv-dev.xml
+	cd $(HOME)/city/$(theCmd)/android_s && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b wip_branch/vssdk/android_s/vs550/google_cert/202204291605 -m syna-s-tv-dev.xml
 	echo DONE
 sdk_init_sequoia_S_GMS_29: | $(HOME)/city/$(theCmd)/s
-	cd $(HOME)/city/$(theCmd)/s && repo init -u ssh://gerrit-sha.synaptics.com:29420/debu/manifest -b wip_branch/vssdk/android_s/vs550/google_cert/202204291605 -m vssdk.xml
+	cd $(HOME)/city/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b wip_branch/vssdk/android_s/vs550/google_cert/202204291605 -m vssdk.xml
 	echo DONE
 android_post_sync_sequoia_S_GMS_29:
 	echo SKIP
@@ -293,7 +293,7 @@ android_init_dolphin_U_GMS_34: android_u_gms_init
 sdk_init_dolphin_U_GMS_34: sdk_init
 	echo DONE
 android_post_sync_dolphin_U_GMS_34:
-	cd $(HOME)/city/$(theCmd)/s/linux_5_15 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux refs/changes/95/235195/1 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/s/linux_5_15 && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/debu/common/linux refs/changes/95/235195/1 && git cherry-pick FETCH_HEAD
 	echo SKIP
 sdk_post_sync_dolphin_U_GMS_34: sdk_post_sync sdk_post_sync_U
 	echo $@ DONE
@@ -417,10 +417,10 @@ android_build_dolphin_110_GMS:
 
 # bg5ct_s
 android_init_bg5ct_s:
-	cd $(HOME)/city/$(theCmd)/android_s && repo init -u ssh://gerrit-sha.synaptics.com:29420/by-projects/android/manifests -b wip_branch/vssdk/android_s/vs550/google_cert/202204291605 -m syna-s-tv-dev.xml
+	cd $(HOME)/city/$(theCmd)/android_s && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b wip_branch/vssdk/android_s/vs550/google_cert/202204291605 -m syna-s-tv-dev.xml
 	echo DONE
 sdk_init_bg5ct_s:
-	cd $(HOME)/city/$(theCmd)/s && repo init -u ssh://gerrit-sha.synaptics.com:29420/debu/manifest -b wip_branch/vssdk/android_s/vs550/google_cert/202204291605 -m vssdk.xml
+	cd $(HOME)/city/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b wip_branch/vssdk/android_s/vs550/google_cert/202204291605 -m vssdk.xml
 	echo DONE
 android_post_sync_bg5ct_s:
 	echo SKIP
