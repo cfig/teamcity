@@ -293,13 +293,12 @@ android_init_dolphin_U_GMS_34: android_u_gms_init
 sdk_init_dolphin_U_GMS_34: sdk_init
 	echo DONE
 android_post_sync_dolphin_U_GMS_34:
-	cd $(HOME)/city/$(theCmd)/s/linux_5_15 && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/debu/common/linux refs/changes/95/235195/1 && git cherry-pick FETCH_HEAD
 	echo SKIP
 sdk_post_sync_dolphin_U_GMS_34: sdk_post_sync sdk_post_sync_U
 	echo $@ DONE
 android_build_dolphin_U_GMS_34:
 	cd $(HOME)/city/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/dolphin_ul \
+		-p vendor/synaptics/platypus/configs/platypus_ul_32gb \
 		-m ../s
 
 # platypus_T_GMS
