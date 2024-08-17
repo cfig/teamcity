@@ -57,7 +57,8 @@ sdk_post_sync:
 	test -d $(HOME)/city/$(theCmd)/s/synap/vsi_npu_sw_stack && git -C $(HOME)/city/$(theCmd)/s/synap/vsi_npu_sw_stack lfs pull || exit 0
 	test -d $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-9.3.0-poky  && git -C $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-9.3.0-poky  lfs pull || exit 0
 	test -d $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-11.3.0-poky && git -C $(HOME)/city/$(theCmd)/s/toolchain/oe/linux-x64/gcc-11.3.0-poky lfs pull || exit 0
-	cd $(HOME)/city/$(theCmd)/s/build && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/mms/vssdk/top refs/changes/94/180594/1 && git cherry-pick FETCH_HEAD
+	# compiledb
+	#cd $(HOME)/city/$(theCmd)/s/build && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/mms/vssdk/top refs/changes/94/180594/1 && git cherry-pick FETCH_HEAD
 sdk_post_sync_U:
 	test -d $(HOME)/city/$(theCmd)/s/linux_5_15 && git -C $(HOME)/city/$(theCmd)/s/linux_5_15 lfs pull || exit 0
 
