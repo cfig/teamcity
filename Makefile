@@ -411,6 +411,24 @@ sdk_post_sync_dolphin_110_GMS: sdk_post_sync
 pre_compile_dolphin_110_GMS: pre_compile_s
 	echo $@ DONE
 android_build_dolphin_110_GMS:
+	# vsxxx
+	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/vsxxx && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/vsxxx refs/changes/08/232908/4 && git cherry-pick FETCH_HEAD
+	# v-c
+	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/39/223839/18 && git cherry-pick FETCH_HEAD
+	# d-c
+	cd $(HOME)/city/$(theCmd)/android_s/device/synaptics/common &&  git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/common refs/changes/84/226684/4 && git cherry-pick FETCH_HEAD
+	# P
+	cd $(HOME)/city/$(theCmd)/android_s/device/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/15/232515/5 && git cherry-pick FETCH_HEAD
+	# D
+	cd $(HOME)/city/$(theCmd)/android_s/device/synaptics/dolphin && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/dolphin refs/changes/72/232972/5 && git cherry-pick FETCH_HEAD
+	# wireless
+	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/wireless && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/wireless refs/changes/89/226689/3 && git cherry-pick FETCH_HEAD
+	#sm
+	cd $(HOME)/city/$(theCmd)/s/boot/bootloader/sm_cm3 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/sm_cm3 refs/changes/40/232940/2 && git cherry-pick FETCH_HEAD
+	# Hoff1
+	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/wireless && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/wireless refs/changes/74/230774/13 && git cherry-pick FETCH_HEAD
+	# Hoff2
+	cd $(HOME)/city/$(theCmd)/s/linux_5_4 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux refs/changes/39/238639/2 && git cherry-pick FETCH_HEAD
 	cd $(HOME)/city/$(theCmd)/android_s && ./vendor/synaptics/build/build_androidtv \
 		-p vendor/synaptics/platypus/configs/platypus_sl \
 		-m ../s
