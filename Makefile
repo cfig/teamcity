@@ -430,7 +430,7 @@ android_build_dolphin_110_GMS:
 	# Hoff2
 	cd $(HOME)/city/$(theCmd)/s/linux_5_4 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux refs/changes/39/238639/2 && git cherry-pick FETCH_HEAD
 	# Ya
-	cd $(HOME)/city/$(theCmd)/s/linux_5_4 && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/debu/common/linux refs/changes/34/231634/1 && git cherry-pick FETCH_HEAD
+	#cd $(HOME)/city/$(theCmd)/s/linux_5_4 && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/debu/common/linux refs/changes/34/231634/1 && git cherry-pick FETCH_HEAD
 	# done
 	cd $(HOME)/city/$(theCmd)/android_s && ./vendor/synaptics/build/build_androidtv \
 		-p vendor/synaptics/platypus/configs/platypus_sl \
