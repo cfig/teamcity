@@ -299,7 +299,7 @@ sdk_post_sync_dolphin_U_GMS_34: sdk_post_sync sdk_post_sync_U
 	echo $@ DONE
 android_build_dolphin_U_GMS_34:
 	cd $(HOME)/city/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/dolphin_ul \
+		-p vendor/synaptics/platypus/configs/platypus_ul_32gb \
 		-m ../s
 
 # platypus_T_GMS
