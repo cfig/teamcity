@@ -424,8 +424,8 @@ sdk_init_dolphin_110_GMS: sdk_110_init
 android_post_sync_dolphin_110_GMS:
 	# boot
 	cd $(HOME)/city/$(theCmd)/s/boot/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/common refs/changes/09/246909/11 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/s/boot/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/common refs/changes/21/246921/3 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/s/boot/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/common refs/changes/27/246927/1 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/s/boot/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/common refs/changes/21/246921/5 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/s/boot/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/common refs/changes/27/246927/3 && git cherry-pick FETCH_HEAD
 	#uboot
 	cd $(HOME)/city/$(theCmd)/s/boot/u-boot_2019_10 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/external/u-boot refs/changes/30/246930/1 && git cherry-pick FETCH_HEAD
 	# android
