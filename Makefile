@@ -295,7 +295,6 @@ android_init_dolphin_U_GMS_34: android_u_gms_init
 sdk_init_dolphin_U_GMS_34: sdk_init
 	echo DONE
 android_post_sync_dolphin_U_GMS_34:
-	cd $(HOME)/city/$(theCmd)/android_u/vendor/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/34/247434/4 && git cherry-pick FETCH_HEAD
 	echo SKIP
 sdk_post_sync_dolphin_U_GMS_34: sdk_post_sync sdk_post_sync_U
 	echo $@ DONE
