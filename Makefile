@@ -426,6 +426,8 @@ android_post_sync_dolphin_110_GMS:
 sdk_post_sync_dolphin_110_GMS: sdk_post_sync
 	echo SKIP
 pre_compile_dolphin_110_GMS: pre_compile_s
+	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/overlays && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/marvell/overlays refs/changes/11/248211/1 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/45/248145/4 && git cherry-pick FETCH_HEAD
 	echo $@ DONE
 android_build_dolphin_110_GMS:
 	cd $(HOME)/city/$(theCmd)/android_s && ./vendor/synaptics/build/build_androidtv \
