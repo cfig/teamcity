@@ -73,11 +73,11 @@ android_t_clean:
 	cd $(HOME)/city/$(theCmd)/android_t && repo forall -j1 -c "git reset --hard"; exit 0
 	cd $(HOME)/city/$(theCmd)/android_t && repo forall -j1 -c "git clean -xdf"; exit 0
 android_u_clean:
-	cd $(HOME)/city/$(theCmd)/android_u && repo forall -j1 -c "git reset --hard"
-	cd $(HOME)/city/$(theCmd)/android_u && repo forall -j1 -c "git clean -xdf"
+	cd $(HOME)/city/$(theCmd)/android_u && repo forall -j1 -c "git reset --hard"; exit 0
+	cd $(HOME)/city/$(theCmd)/android_u && repo forall -j1 -c "git clean -xdf"; exit 0
 sdk_clean:
-	cd $(HOME)/city/$(theCmd)/s && repo forall -j1 -c "git reset --hard"
-	cd $(HOME)/city/$(theCmd)/s && repo forall -j1 -c "git clean -xdf"
+	cd $(HOME)/city/$(theCmd)/s && repo forall -j1 -c "git reset --hard"; exit 0
+	cd $(HOME)/city/$(theCmd)/s && repo forall -j1 -c "git clean -xdf"; exit 0
 
 android_r_aosp_init: | $(HOME)/city/$(theCmd)/android_r
 	cd $(HOME)/city/$(theCmd)/android_r && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b rel_branch/vssdk/v1.7/202108201205 -m syna-r-aosp.xml
