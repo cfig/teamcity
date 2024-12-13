@@ -130,9 +130,6 @@ android_init_musen: musen_android_init
 sdk_init_musen: musen_sdk_init
 	echo DONE
 android_post_sync_musen:
-	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/platypus && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/platypus refs/changes/04/185404/1 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/android_s/device/synaptics/platypus && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/33/185533/2 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/common && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/27/185527/2 && git cherry-pick FETCH_HEAD
 	echo SKIP
 pre_compile_musen: pre_compile_s
 	echo $@ DONE
