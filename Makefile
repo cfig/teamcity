@@ -279,12 +279,6 @@ android_post_sync_dolphin_U_AOSP_34:
 	echo SKIP
 sdk_post_sync_dolphin_U_AOSP_34: sdk_post_sync sdk_post_sync_U
 	echo SKIP
-pre_compile_dolphin_U_AOSP_34: pre_compile_u u_common
-	# Simon
-	cd $(HOME)/city/$(theCmd)/s/ta_app && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/mms/vssdk/ta_app refs/changes/37/249237/1 && git cherry-pick FETCH_HEAD
-	cd $(HOME)/city/$(theCmd)/s/tee/tee_dev && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/tee/tee_dev refs/changes/11/249411/2 && git cherry-pick FETCH_HEAD
-	# Simon
-	echo $@ DONE
 android_build_dolphin_U_AOSP_34:
 	cd $(HOME)/city/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
 		-p vendor/synaptics/platypus/configs/aosp_platypus_ul \
