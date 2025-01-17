@@ -424,6 +424,8 @@ sdk_post_sync_dolphin_110_GMS: sdk_post_sync
 pre_compile_dolphin_110_GMS: pre_compile_s
 	echo $@ DONE
 android_build_dolphin_110_GMS:
+	cd $(HOME)/city/$(theCmd)/android_s/vendor/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/81/252981/1 && git cherry-pick FETCH_HEAD
+	cd $(HOME)/city/$(theCmd)/android_s/device/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/11/253011/1 && git cherry-pick FETCH_HEAD
 	cd $(HOME)/city/$(theCmd)/android_s && ./vendor/synaptics/build/build_androidtv \
 		-p vendor/synaptics/platypus/configs/platypus_sl \
 		-m ../s
