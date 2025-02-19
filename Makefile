@@ -293,6 +293,12 @@ sdk_init_dolphin_U_GMS_34: sdk_init
 android_post_sync_dolphin_U_GMS_34:
 	echo SKIP
 sdk_post_sync_dolphin_U_GMS_34: sdk_post_sync sdk_post_sync_U
+	#1
+	cd $(HOME)/city/$(theCmd)/android_u/device/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/common refs/changes/80/255480/4 && git cherry-pick FETCH_HEAD
+	#2
+	cd $(HOME)/city/$(theCmd)/android_u/device/synaptics/dolphin && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/dolphin refs/changes/83/255483/2 && git cherry-pick FETCH_HEAD
+	#3
+	cd $(HOME)/city/$(theCmd)/android_u/vendor/synaptics/vsxxx && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/vsxxx refs/changes/86/255486/2 && git cherry-pick FETCH_HEAD
 	echo $@ DONE
 android_build_dolphin_U_GMS_34:
 	cd $(HOME)/city/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
