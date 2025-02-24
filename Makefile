@@ -282,7 +282,7 @@ sdk_post_sync_dolphin_U_AOSP_34: sdk_post_sync sdk_post_sync_U
 android_build_dolphin_U_AOSP_34:
 #		-p vendor/synaptics/platypus/configs/aosp_platypus_ul
 	cd $(HOME)/city/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/hippo/configs/aosp_hippo_ul_rdk \
+		-p vendor/synaptics/dolphin/configs/aosp_dolphin_ul \
 		-m ../s
 
 # dolphin_U_GMS_34
