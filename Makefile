@@ -94,7 +94,7 @@ android_t_gms_init: | $(HOME)/city/$(theCmd)/android_t
 android_u_aosp_init: | $(HOME)/city/$(theCmd)/android_u
 	cd $(HOME)/city/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-aosp.xml
 android_u_gms_init: | $(HOME)/city/$(theCmd)/android_u
-	cd $(HOME)/city/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-tv-dev.xml --depth=100
+	cd $(HOME)/city/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-tv-dev.xml --depth=1
 android_t_aosp_init: | $(HOME)/city/$(theCmd)/android_t
 	cd $(HOME)/city/$(theCmd)/android_t && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_t/master -m syna-aosp.xml
 android_110_gms_init: | $(HOME)/city/$(theCmd)/android_s
