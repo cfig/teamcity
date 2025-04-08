@@ -425,6 +425,7 @@ android_post_sync_dolphin_110_GMS:
 sdk_post_sync_dolphin_110_GMS: sdk_post_sync
 	echo SKIP
 pre_compile_dolphin_110_GMS: pre_compile_s
+	cd $(HOME)/city/$(theCmd)/s/tee/tee && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/tee/tzk_rel refs/changes/98/259398/1 && git cherry-pick FETCH_HEAD
 	echo $@ DONE
 android_build_dolphin_110_GMS:
 	cd $(HOME)/city/$(theCmd)/android_s && ./vendor/synaptics/build/build_androidtv \
