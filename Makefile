@@ -296,9 +296,6 @@ sdk_init_dolphin_U_GMS_34: sdk_init
 android_post_sync_dolphin_U_GMS_34:
 	echo SKIP
 sdk_post_sync_dolphin_U_GMS_34: sdk_post_sync sdk_post_sync_U
-	#XXXX
-	cd $(CITY)/$(theCmd)/android_u/device/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/common refs/changes/40/258840/1 && git cherry-pick FETCH_HEAD
-	#XXXX
 	echo $@ DONE
 android_build_dolphin_U_GMS_34:
 	cd $(CITY)/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
@@ -317,6 +314,13 @@ android_post_sync_dolphin_U_LTS_34:
 sdk_post_sync_dolphin_U_LTS_34: sdk_post_sync sdk_post_sync_U
 	echo $@ DONE
 android_build_dolphin_U_LTS_34:
+	# linux X 3
+	cd $(CITY)/$(theCmd)/s/linux_5_15/ && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux refs/changes/92/261192/2 && git cherry-pick FETCH_HEAD
+	cd $(CITY)/$(theCmd)/s/linux_5_15/ && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux refs/changes/62/261162/2 && git cherry-pick FETCH_HEAD
+	cd $(CITY)/$(theCmd)/s/linux_5_15/drivers/synaptics && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/linux-driver/synaptics refs/changes/86/260886/2 && git cherry-pick FETCH_HEAD
+	# SM X 1
+	cd $(CITY)/$(theCmd)/s/boot/bootloader/sm_cm3 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/sm_cm3 refs/changes/73/261173/1 && git cherry-pick FETCH_HEAD
+	# done
 	cd $(CITY)/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
 		-p vendor/synaptics/dolphin/configs/dolphin_ul \
 		-m ../s
