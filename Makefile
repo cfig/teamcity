@@ -65,6 +65,8 @@ sdk_post_sync:
 	#cd $(CITY)/$(theCmd)/s/build && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/mms/vssdk/top refs/changes/94/180594/1 && git cherry-pick FETCH_HEAD
 sdk_post_sync_U:
 	test -d $(CITY)/$(theCmd)/s/linux_5_15 && git -C $(CITY)/$(theCmd)/s/linux_5_15 lfs pull || exit 0
+sdk_post_sync_B:
+	test -d $(CITY)/$(theCmd)/s/linux_5_15 && git -C $(CITY)/$(theCmd)/s/linux_5_15 lfs pull || exit 0
 
 android_r_clean:
 	cd $(CITY)/$(theCmd)/android_r && repo forall -j1 -c "git reset --hard"; exit 0
@@ -98,6 +100,8 @@ android_u_aosp_init: | $(CITY)/$(theCmd)/android_u
 	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-aosp.xml
 android_u_gms_init: | $(CITY)/$(theCmd)/android_u
 	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-tv-dev.xml --depth=100
+android_b_aosp_init: | $(CITY)/$(theCmd)/android_b
+	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_b/master -m syna-aosp.xml
 android_t_aosp_init: | $(CITY)/$(theCmd)/android_t
 	cd $(CITY)/$(theCmd)/android_t && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_t/master -m syna-aosp.xml
 android_110_gms_init: | $(CITY)/$(theCmd)/android_s
@@ -273,6 +277,20 @@ android_build_dolphin_T_AOSP_33:
 		-p vendor/synaptics/dolphin/configs/aosp_dolphin_tl \
 		-m ../s
 
+# dolphin_B_AOSP_36
+android_init_dolphin_B_AOSP_36: android_b_aosp_init
+	echo DONE
+sdk_init_dolphin_B_AOSP_36: sdk_init
+	echo DONE
+android_post_sync_dolphin_B_AOSP_36:
+	echo SKIP
+sdk_post_sync_dolphin_B_AOSP_36: sdk_post_sync sdk_post_sync_B
+	echo SKIP
+android_build_dolphin_B_AOSP_36:
+	cd $(CITY)/$(theCmd)/android_b && ./vendor/synaptics/build/build_androidtv \
+		-p vendor/synaptics/dolphin/configs/aosp_dolphin_bl \
+		-m ../s
+
 # dolphin_U_AOSP_34
 android_init_dolphin_U_AOSP_34: android_u_aosp_init
 	echo DONE
@@ -317,63 +335,6 @@ android_build_dolphin_U_LTS_34:
 	# done
 	cd $(CITY)/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
 		-p vendor/synaptics/dolphin/configs/dolphin_ul \
-		-m ../s
-
-# platypus_T_GMS
-android_init_platypus_T_GMS: android_t_gms_init
-	echo DONE
-sdk_init_platypus_T_GMS: sdk_init
-	echo DONE
-android_post_sync_platypus_T_GMS:
-	echo SKIP
-pre_compile_platypus_T_GMS: pre_compile_t t_common
-	cd $(CITY)/$(theCmd)/s/boot/bootloader && repo download 180582
-	echo $@ DONE
-android_build_platypus_T_GMS:
-	cd $(CITY)/$(theCmd)/android_t && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/platypus/configs/platypus_tl \
-		-m ../s
-
-# dolphin_T_GMS_33
-android_init_dolphin_T_GMS_33: android_t_gms_init
-	echo DONE
-sdk_init_dolphin_T_GMS_33: sdk_init
-	echo DONE
-android_post_sync_dolphin_T_GMS_33:
-	echo SKIP
-pre_compile_dolphin_T_GMS_33: pre_compile_t t_common
-	echo $@ DONE
-android_build_dolphin_T_GMS_33:
-	cd $(CITY)/$(theCmd)/android_t && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/dolphin_tl \
-		-m ../s
-
-# dolphin_T_GMS_31
-android_init_dolphin_T_GMS_31: android_t_gms_init
-	echo DONE
-sdk_init_dolphin_T_GMS_31: sdk_init
-	echo DONE
-android_post_sync_dolphin_T_GMS_31:
-	echo SKIP
-pre_compile_dolphin_T_GMS_31: pre_compile_t t_common
-	echo $@ DONE
-android_build_dolphin_T_GMS_31:
-	cd $(CITY)/$(theCmd)/android_t && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/dolphin_sl -b userdebug_cl \
-		-m ../s
-
-# dolphin_R_GMS_30
-android_init_dolphin_R_GMS_30: android_r_gms_init
-	echo DONE
-sdk_init_dolphin_R_GMS_30: sdk_r_init
-	echo DONE
-android_post_sync_dolphin_R_GMS_30:
-	echo SKIP
-pre_compile_dolphin_R_GMS_30: pre_compile_r
-	echo $@ DONE
-android_build_dolphin_R_GMS_30:
-	cd $(CITY)/$(theCmd)/android_r && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/dolphin_rl_a0  \
 		-m ../s
 
 # dolphin_S_AOSP_31
