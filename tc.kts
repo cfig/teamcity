@@ -155,6 +155,9 @@ when (proj) {
     "dolphin_U_AOSP_34", "dolphin_U_GMS_34", "dolphin_U_LTS_34" -> {
         droid = "u"
     }
+    "dolphin_B_AOSP_36", "dolphin_B_GMS_36"  -> {
+        droid = "b"
+    }
     else -> {
     }
 }

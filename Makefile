@@ -49,6 +49,8 @@ android_t_sync:
 	cd $(CITY)/$(theCmd)/android_t && repo sync --force-sync
 android_u_sync:
 	cd $(CITY)/$(theCmd)/android_u && repo sync --force-sync
+android_b_sync:
+	cd $(CITY)/$(theCmd)/android_b && repo sync --force-sync
 android_sync_post:
 	echo "android_sync_post()"
 
@@ -80,6 +82,9 @@ android_t_clean:
 android_u_clean:
 	cd $(CITY)/$(theCmd)/android_u && repo forall -j1 -c "git reset --hard"; exit 0
 	cd $(CITY)/$(theCmd)/android_u && repo forall -j1 -c "git clean -xdf"; exit 0
+android_b_clean:
+	cd $(CITY)/$(theCmd)/android_b && repo forall -j1 -c "git reset --hard"; exit 0
+	cd $(CITY)/$(theCmd)/android_b && repo forall -j1 -c "git clean -xdf"; exit 0
 sdk_clean:
 	cd $(CITY)/$(theCmd)/s && repo forall -j1 -c "git reset --hard"; exit 0
 	cd $(CITY)/$(theCmd)/s && repo forall -j1 -c "git clean -xdf"; exit 0
@@ -101,7 +106,7 @@ android_u_aosp_init: | $(CITY)/$(theCmd)/android_u
 android_u_gms_init: | $(CITY)/$(theCmd)/android_u
 	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-tv-dev.xml --depth=100
 android_b_aosp_init: | $(CITY)/$(theCmd)/android_b
-	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_b/master -m syna-aosp.xml
+	cd $(CITY)/$(theCmd)/android_b  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_b/master -m syna-aosp.xml
 android_t_aosp_init: | $(CITY)/$(theCmd)/android_t
 	cd $(CITY)/$(theCmd)/android_t && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_t/master -m syna-aosp.xml
 android_110_gms_init: | $(CITY)/$(theCmd)/android_s
