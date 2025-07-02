@@ -291,6 +291,20 @@ android_build_dolphin_B_AOSP_36:
 		-p vendor/synaptics/dolphin/configs/aosp_dolphin_bl \
 		-m ../s
 
+# dolphin_B_GMS_36
+android_init_dolphin_B_GMS_36: android_b_aosp_init
+	echo DONE
+sdk_init_dolphin_B_GMS_36: sdk_init
+	echo DONE
+android_post_sync_dolphin_B_GMS_36:
+	echo SKIP
+sdk_post_sync_dolphin_B_GMS_36: sdk_post_sync sdk_post_sync_B
+	echo SKIP
+android_build_dolphin_B_GMS_36:
+	cd $(CITY)/$(theCmd)/android_b && ./vendor/synaptics/build/build_androidtv \
+		-p vendor/synaptics/dolphin/configs/aosp_dolphin_ul \
+		-m ../s
+
 # dolphin_U_AOSP_34
 android_init_dolphin_U_AOSP_34: android_u_aosp_init
 	echo DONE
