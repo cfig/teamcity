@@ -118,7 +118,7 @@ sdk_r_init: | $(CITY)/$(theCmd)/s
 sdk_110_init: | $(CITY)/$(theCmd)/s
 	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b rel_branch/vssdk/v1.10.1/202301101805 -m vssdk.xml
 sdk_init: | $(CITY)/$(theCmd)/s
-	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b dev_branch/master -m vssdk.xml
+	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b dev_branch/master -m vssdk.xml --depth=1
 musen_sdk_init: | $(CITY)/$(theCmd)/s
 	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b wip_branch/vssdk/android_s/vs640/vssdk.ppd/202304131205 -m vssdk.xml
 pre_compile_r:
