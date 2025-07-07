@@ -107,6 +107,8 @@ android_u_gms_init: | $(CITY)/$(theCmd)/android_u
 	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-tv-dev.xml --depth=100
 android_b_aosp_init: | $(CITY)/$(theCmd)/android_b
 	cd $(CITY)/$(theCmd)/android_b  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_b/master -m syna-aosp.xml --depth=100
+android_b_gms_init: | $(CITY)/$(theCmd)/android_b
+	cd $(CITY)/$(theCmd)/android_b  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_b/master -m syna-aosp.xml --depth=1
 android_t_aosp_init: | $(CITY)/$(theCmd)/android_t
 	cd $(CITY)/$(theCmd)/android_t && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_t/master -m syna-aosp.xml
 android_110_gms_init: | $(CITY)/$(theCmd)/android_s
@@ -297,7 +299,7 @@ android_build_dolphin_B_AOSP_36:
 		-m ../s
 
 # dolphin_B_GMS_36
-android_init_dolphin_B_GMS_36: android_b_aosp_init
+android_init_dolphin_B_GMS_36: android_b_gms_init
 	echo DONE
 sdk_init_dolphin_B_GMS_36: sdk_init
 	echo DONE
