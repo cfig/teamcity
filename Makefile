@@ -37,6 +37,8 @@ $(CITY)/$(theCmd)/android_t:
 	mkdir -p $@
 $(CITY)/$(theCmd)/android_u:
 	mkdir -p $@
+$(CITY)/$(theCmd)/android_b:
+	mkdir -p $@
 $(CITY)/$(theCmd)/s:
 	mkdir -p $@
 
