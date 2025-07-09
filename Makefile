@@ -121,6 +121,8 @@ sdk_110_init: | $(CITY)/$(theCmd)/s
 	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b rel_branch/vssdk/v1.10.1/202301101805 -m vssdk.xml
 sdk_init: | $(CITY)/$(theCmd)/s
 	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b dev_branch/master -m vssdk.xml --depth=1
+sdk_baklava_init: | $(CITY)/$(theCmd)/s
+	cd $(CITY)/$(theCmd)/s && repo init --git-lfs -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b dev_branch/master -m vssdk.xml --depth=1
 musen_sdk_init: | $(CITY)/$(theCmd)/s
 	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b wip_branch/vssdk/android_s/vs640/vssdk.ppd/202304131205 -m vssdk.xml
 pre_compile_r:
@@ -289,7 +291,7 @@ android_build_dolphin_T_AOSP_33:
 # dolphin_B_AOSP_36
 android_init_dolphin_B_AOSP_36: android_b_aosp_init
 	echo DONE
-sdk_init_dolphin_B_AOSP_36: sdk_init
+sdk_init_dolphin_B_AOSP_36: sdk_baklava_init
 	echo DONE
 android_post_sync_dolphin_B_AOSP_36:
 	echo SKIP
@@ -303,7 +305,7 @@ android_build_dolphin_B_AOSP_36:
 # dolphin_B_GMS_36
 android_init_dolphin_B_GMS_36: android_b_gms_init
 	echo DONE
-sdk_init_dolphin_B_GMS_36: sdk_init
+sdk_init_dolphin_B_GMS_36: sdk_baklava_init
 	echo DONE
 android_post_sync_dolphin_B_GMS_36:
 	echo SKIP
