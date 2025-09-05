@@ -354,11 +354,14 @@ sdk_init_dolphin_U_LTS_34: sdk_init
 	echo DONE
 android_post_sync_dolphin_U_LTS_34:
 	#android 5
-	cd $(CITY)/$(theCmd)/android_u/vendor/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/48/273248/7 && git cherry-pick FETCH_HEAD
+	cd $(CITY)/$(theCmd)/android_u/vendor/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/48/273248/8 && git cherry-pick FETCH_HEAD
 	cd $(CITY)/$(theCmd)/android_u/device/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/common refs/changes/30/273230/2 && git cherry-pick FETCH_HEAD
 	cd $(CITY)/$(theCmd)/android_u/vendor/synaptics/vsxxx && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/vsxxx refs/changes/33/273233/1 && git cherry-pick FETCH_HEAD
 	cd $(CITY)/$(theCmd)/android_u/device/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/09/273209/1 && git cherry-pick FETCH_HEAD
+	# enable dol
 	cd $(CITY)/$(theCmd)/android_u/device/synaptics/dolphin && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/dolphin refs/changes/56/273656/1 && git cherry-pick FETCH_HEAD
+	# enable pla
+	cd $(CITY)/$(theCmd)/android_u/device/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/18/273818/1 && git cherry-pick FETCH_HEAD
 	echo DONE
 sdk_post_sync_dolphin_U_LTS_34: sdk_post_sync sdk_post_sync_U
 	#amp
@@ -373,7 +376,7 @@ sdk_post_sync_dolphin_U_LTS_34: sdk_post_sync sdk_post_sync_U
 android_build_dolphin_U_LTS_34:
 	# done
 	cd $(CITY)/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/dolphin_ul \
+		-p vendor/synaptics/platypus/configs/platypus_sl \
 		-m ../s
 
 # dolphin_S_AOSP_31
