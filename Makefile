@@ -353,30 +353,17 @@ sdk_init_dolphin_U_LTS_34: sdk_init
 	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b rel_branch/vssdk/v1.14/202412051605 -m vssdk.xml
 	echo DONE
 android_post_sync_dolphin_U_LTS_34:
-	#android 5
-	cd $(CITY)/$(theCmd)/android_u/vendor/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/48/273248/8 && git cherry-pick FETCH_HEAD
-	cd $(CITY)/$(theCmd)/android_u/device/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/common refs/changes/30/273230/2 && git cherry-pick FETCH_HEAD
-	cd $(CITY)/$(theCmd)/android_u/vendor/synaptics/vsxxx && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/vsxxx refs/changes/33/273233/1 && git cherry-pick FETCH_HEAD
-	cd $(CITY)/$(theCmd)/android_u/device/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/09/273209/1 && git cherry-pick FETCH_HEAD
 	# enable dol
 	cd $(CITY)/$(theCmd)/android_u/device/synaptics/dolphin && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/dolphin refs/changes/56/273656/1 && git cherry-pick FETCH_HEAD
 	# enable pla
 	cd $(CITY)/$(theCmd)/android_u/device/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/18/273818/1 && git cherry-pick FETCH_HEAD
 	echo DONE
 sdk_post_sync_dolphin_U_LTS_34: sdk_post_sync sdk_post_sync_U
-	#amp
-	cd $(CITY)/$(theCmd)/s/ampsdk && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/common/ampsdk-unified refs/changes/03/273203/2 && git cherry-pick FETCH_HEAD
-	#vcpu_l2 3
-	cd $(CITY)/$(theCmd)/s/boot/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/common refs/changes/01/272801/4 && git cherry-pick FETCH_HEAD
-	cd $(CITY)/$(theCmd)/s/boot/bootloader && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/bootloader refs/changes/16/271916/5 && git cherry-pick FETCH_HEAD
-	cd $(CITY)/$(theCmd)/s/configs && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/mms/vssdk/configs refs/changes/31/271931/1 && git cherry-pick FETCH_HEAD
-	# vcore_l
-	cd $(CITY)/$(theCmd)/s/boot/bootloader && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/debu/mboot/bootloader refs/changes/06/259306/1 && git cherry-pick FETCH_HEAD
 	echo $@ DONE
 android_build_dolphin_U_LTS_34:
 	# done
 	cd $(CITY)/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/platypus/configs/platypus_sl \
+		-p vendor/synaptics/dolphin/configs/dolphin_ul \
 		-m ../s
 
 # dolphin_S_AOSP_31
