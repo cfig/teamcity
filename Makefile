@@ -310,6 +310,10 @@ sdk_init_dolphin_B_GMS_36: sdk_baklava_init
 android_post_sync_dolphin_B_GMS_36:
 	echo SKIP
 sdk_post_sync_dolphin_B_GMS_36: sdk_post_sync sdk_post_sync_B
+	cd $(CITY)/$(theCmd)/android_b/device/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/common refs/changes/73/274973/4 && git cherry-pick FETCH_HEAD
+	cd $(CITY)/$(theCmd)/android_b/vendor/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/common refs/changes/07/275207/7 && git cherry-pick FETCH_HEAD
+	cd $(CITY)/$(theCmd)/android_b/device/synaptics/dolphin && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/dolphin refs/changes/45/275345/1 && git cherry-pick FETCH_HEAD
+	cd $(CITY)/$(theCmd)/android_b/device/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/48/275348/1 && git cherry-pick FETCH_HEAD
 	echo SKIP
 android_build_dolphin_B_GMS_36:
 	cd $(CITY)/$(theCmd)/android_b && ./vendor/synaptics/build/build_androidtv \
