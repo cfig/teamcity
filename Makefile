@@ -110,7 +110,7 @@ android_u_gms_init: | $(CITY)/$(theCmd)/android_u
 android_b_aosp_init: | $(CITY)/$(theCmd)/android_b
 	cd $(CITY)/$(theCmd)/android_b  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_b/master -m syna-aosp.xml
 android_b_gms_init: | $(CITY)/$(theCmd)/android_b
-	cd $(CITY)/$(theCmd)/android_b  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_b/master -m syna-aosp.xml --depth=100
+	cd $(CITY)/$(theCmd)/android_b  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_b/master -m syna-aosp.xml
 android_t_aosp_init: | $(CITY)/$(theCmd)/android_t
 	cd $(CITY)/$(theCmd)/android_t && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_t/master -m syna-aosp.xml
 android_110_gms_init: | $(CITY)/$(theCmd)/android_s
@@ -299,7 +299,7 @@ sdk_post_sync_dolphin_B_GMS_36: sdk_post_sync sdk_post_sync_B
 	echo SKIP
 android_build_dolphin_B_GMS_36:
 	cd $(CITY)/$(theCmd)/android_b && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/aosp_dolphin_bl \
+		-p vendor/synaptics/dolphin/configs/dolphin_bl \
 		-m ../s
 
 # dolphin_B_AOSP_36
@@ -313,9 +313,8 @@ sdk_post_sync_dolphin_B_AOSP_36: sdk_post_sync sdk_post_sync_B
 	echo SKIP
 android_build_dolphin_B_AOSP_36:
 	cd $(CITY)/$(theCmd)/android_b && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/aosp_dolphin_ul \
+		-p vendor/synaptics/dolphin/configs/aosp_dolphin_bl \
 		-m ../s
-
 
 # dolphin_U_AOSP_34
 android_init_dolphin_U_AOSP_34: android_u_aosp_init
