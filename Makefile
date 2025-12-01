@@ -313,7 +313,7 @@ sdk_post_sync_dolphin_B_AOSP_36: sdk_post_sync sdk_post_sync_B
 	echo SKIP
 android_build_dolphin_B_AOSP_36:
 	cd $(CITY)/$(theCmd)/android_b && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/aosp_dolphin_bl \
+		-p vendor/synaptics/dolphin/configs/aosp_dolphin_bl_rdk \
 		-m ../s
 
 # dolphin_U_AOSP_34
