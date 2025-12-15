@@ -303,8 +303,6 @@ sdk_post_sync_dolphin_B_GMS_36: sdk_post_sync sdk_post_sync_B
 	cd $(CITY)/$(theCmd)/s/toolchain/clang/linux-x86 && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/prebuilts/clang/host/linux-x86 refs/changes/83/283283/3 && git cherry-pick FETCH_HEAD
 	# v-dol
 	cd $(CITY)/$(theCmd)/android_b/vendor/synaptics/dolphin && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/dolphin refs/changes/80/283280/3 && git cherry-pick FETCH_HEAD
-	# d-common
-	cd $(CITY)/$(theCmd)/android_b/device/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/common refs/changes/92/283892/2 && git cherry-pick FETCH_HEAD
 	# v-s-o
 	cd $(CITY)/$(theCmd)/android_b/vendor/synaptics/overlays && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/marvell/overlays refs/changes/28/283928/1 && git cherry-pick FETCH_HEAD
 	# sdk build
