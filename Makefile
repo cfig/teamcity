@@ -295,6 +295,7 @@ sdk_init_dolphin_B_GMS_36: sdk_baklava_init
 	echo DONE
 android_post_sync_dolphin_B_GMS_36:
 	echo SKIP
+	cd $(CITY)/$(theCmd)/android_b/device/synaptics/common && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/common refs/changes/67/290067/2 && git cherry-pick FETCH_HEAD
 sdk_post_sync_dolphin_B_GMS_36: sdk_post_sync sdk_post_sync_B
 	echo SKIP
 android_build_dolphin_B_GMS_36:
