@@ -353,10 +353,6 @@ sdk_init_dolphin_U_LTS_34: sdk_init
 	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b rel_branch/vssdk/v1.14/202412051605 -m vssdk.xml
 	echo DONE
 android_post_sync_dolphin_U_LTS_34:
-	# enable dol
-	cd $(CITY)/$(theCmd)/android_u/device/synaptics/dolphin && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/dolphin refs/changes/56/273656/1 && git cherry-pick FETCH_HEAD
-	# enable pla
-	cd $(CITY)/$(theCmd)/android_u/device/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/device/synaptics/platypus refs/changes/18/273818/1 && git cherry-pick FETCH_HEAD
 	echo DONE
 sdk_post_sync_dolphin_U_LTS_34: sdk_post_sync sdk_post_sync_U
 	echo $@ DONE
