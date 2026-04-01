@@ -105,6 +105,8 @@ android_t_gms_init: | $(CITY)/$(theCmd)/android_t
 	cd $(CITY)/$(theCmd)/android_t && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_t/master -m syna-tv-dev.xml
 android_u_aosp_init: | $(CITY)/$(theCmd)/android_u
 	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-aosp.xml
+android_u_aosp_init_114_lts: | $(CITY)/$(theCmd)/android_u
+	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b rel_branch/vssdk/v1.14/202412051605 -m syna-aosp.xml
 android_u_gms_init: | $(CITY)/$(theCmd)/android_u
 	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-tv-dev.xml --depth=100
 android_b_aosp_init: | $(CITY)/$(theCmd)/android_b
@@ -121,6 +123,8 @@ sdk_110_init: | $(CITY)/$(theCmd)/s
 	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b rel_branch/vssdk/v1.10.1/202301101805 -m vssdk.xml
 sdk_init: | $(CITY)/$(theCmd)/s
 	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b dev_branch/master -m vssdk.xml --depth=1
+sdk_init_114_lts: | $(CITY)/$(theCmd)/s
+	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b rel_branch/vssdk/v1.14/202412051605 -m vssdk.xml
 sdk_baklava_init: | $(CITY)/$(theCmd)/s
 	cd $(CITY)/$(theCmd)/s && repo init --git-lfs -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b dev_branch/master -m vssdk.xml
 musen_sdk_init: | $(CITY)/$(theCmd)/s
@@ -317,9 +321,9 @@ android_build_dolphin_B_AOSP_36:
 		-m ../s
 
 # dolphin_U_AOSP_34
-android_init_dolphin_U_AOSP_34: android_u_aosp_init
+android_init_dolphin_U_AOSP_34: android_u_aosp_init_114_lts
 	echo DONE
-sdk_init_dolphin_U_AOSP_34: sdk_init
+sdk_init_dolphin_U_AOSP_34: sdk_init_114_lts
 	echo DONE
 android_post_sync_dolphin_U_AOSP_34:
 	echo SKIP
