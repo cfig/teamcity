@@ -152,7 +152,7 @@ when (proj) {
     "dolphin_T_AOSP_33", "platypus_T_GMS" -> {
         droid = "t"
     }
-    "dolphin_U_LTS_AOSP_34", "dolphin_U_GMS_34", "dolphin_U_LTS_34" -> {
+    "dolphin_U_trunk_AOSP_34", "dolphin_U_LTS_AOSP_34", "dolphin_U_GMS_34", "dolphin_U_LTS_34" -> {
         droid = "u"
     }
     "dolphin_B_AOSP_36", "dolphin_B_GMS_36"  -> {

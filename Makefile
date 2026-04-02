@@ -59,12 +59,13 @@ android_sync_post:
 sdk_sync:
 	cd $(CITY)/$(theCmd)/s && repo sync --force-sync
 sdk_post_sync:
-	git -C $(CITY)/$(theCmd)/s/drm/playready lfs pull
-	test -d $(CITY)/$(theCmd)/s/synap/release          && git -C $(CITY)/$(theCmd)/s/synap/release lfs pull || exit 0
-	test -d $(CITY)/$(theCmd)/s/synap/vsi_npu_sw_stack && git -C $(CITY)/$(theCmd)/s/synap/vsi_npu_sw_stack lfs pull || exit 0
-	test -d $(CITY)/$(theCmd)/s/toolchain/oe/linux-x64/gcc-9.3.0-poky  && git -C $(CITY)/$(theCmd)/s/toolchain/oe/linux-x64/gcc-9.3.0-poky  lfs pull || exit 0
-	test -d $(CITY)/$(theCmd)/s/toolchain/oe/linux-x64/gcc-11.3.0-poky && git -C $(CITY)/$(theCmd)/s/toolchain/oe/linux-x64/gcc-11.3.0-poky lfs pull || exit 0
-	test -d $(CITY)/$(theCmd)/android_u/device/synaptics/common && git -C $(CITY)/$(theCmd)/android_u/device/synaptics/common lfs pull || exit 0
+	cd $(CITY)/$(theCmd)/s/ && lazybox repo_lfs
+	#git -C $(CITY)/$(theCmd)/s/drm/playready lfs pull
+	#test -d $(CITY)/$(theCmd)/s/synap/release          && git -C $(CITY)/$(theCmd)/s/synap/release lfs pull || exit 0
+	#test -d $(CITY)/$(theCmd)/s/synap/vsi_npu_sw_stack && git -C $(CITY)/$(theCmd)/s/synap/vsi_npu_sw_stack lfs pull || exit 0
+	#test -d $(CITY)/$(theCmd)/s/toolchain/oe/linux-x64/gcc-9.3.0-poky  && git -C $(CITY)/$(theCmd)/s/toolchain/oe/linux-x64/gcc-9.3.0-poky  lfs pull || exit 0
+	#test -d $(CITY)/$(theCmd)/s/toolchain/oe/linux-x64/gcc-11.3.0-poky && git -C $(CITY)/$(theCmd)/s/toolchain/oe/linux-x64/gcc-11.3.0-poky lfs pull || exit 0
+	#test -d $(CITY)/$(theCmd)/android_u/device/synaptics/common && git -C $(CITY)/$(theCmd)/android_u/device/synaptics/common lfs pull || exit 0
 	# compiledb
 	#cd $(CITY)/$(theCmd)/s/build && git fetch ssh://yyu@sc-debu-git.synaptics.com:29420/mms/vssdk/top refs/changes/94/180594/1 && git cherry-pick FETCH_HEAD
 sdk_post_sync_U:
@@ -104,7 +105,7 @@ musen_android_init: | $(CITY)/$(theCmd)/android_s
 android_t_gms_init: | $(CITY)/$(theCmd)/android_t
 	cd $(CITY)/$(theCmd)/android_t && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_t/master -m syna-tv-dev.xml
 android_u_aosp_init: | $(CITY)/$(theCmd)/android_u
-	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-aosp.xml
+	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-aosp.xml --depth=1
 android_u_aosp_init_114_lts: | $(CITY)/$(theCmd)/android_u
 	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b rel_branch/vssdk/v1.14/202412051605 -m syna-aosp.xml
 android_u_gms_init: | $(CITY)/$(theCmd)/android_u
@@ -318,6 +319,20 @@ sdk_post_sync_dolphin_B_AOSP_36: sdk_post_sync sdk_post_sync_B
 android_build_dolphin_B_AOSP_36:
 	cd $(CITY)/$(theCmd)/android_b && ./vendor/synaptics/build/build_androidtv \
 		-p vendor/synaptics/dolphin/configs/aosp_dolphin_bl_rdk \
+		-m ../s
+
+# dolphin_U_trunk_AOSP_34
+android_init_dolphin_U_trunk_AOSP_34: android_u_aosp_init
+	echo DONE
+sdk_init_dolphin_U_trunk_AOSP_34: sdk_init
+	echo DONE
+android_post_sync_dolphin_U_trunk_AOSP_34:
+	echo SKIP
+sdk_post_sync_dolphin_U_trunk_AOSP_34: sdk_post_sync sdk_post_sync_U
+	echo SKIP
+android_build_dolphin_U_trunk_AOSP_34:
+	cd $(CITY)/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
+		-p vendor/synaptics/platypus/configs/aosp_platypus_ul_rdk \
 		-m ../s
 
 # dolphin_U_LTS_AOSP_34
