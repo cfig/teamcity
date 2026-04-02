@@ -320,16 +320,16 @@ android_build_dolphin_B_AOSP_36:
 		-p vendor/synaptics/dolphin/configs/aosp_dolphin_bl_rdk \
 		-m ../s
 
-# dolphin_U_AOSP_34
-android_init_dolphin_U_AOSP_34: android_u_aosp_init_114_lts
+# dolphin_U_LTS_AOSP_34
+android_init_dolphin_U_LTS_AOSP_34: android_u_aosp_init_114_lts
 	echo DONE
-sdk_init_dolphin_U_AOSP_34: sdk_init_114_lts
+sdk_init_dolphin_U_LTS_AOSP_34: sdk_init_114_lts
 	echo DONE
-android_post_sync_dolphin_U_AOSP_34:
+android_post_sync_dolphin_U_LTS_AOSP_34:
 	echo SKIP
-sdk_post_sync_dolphin_U_AOSP_34: sdk_post_sync sdk_post_sync_U
+sdk_post_sync_dolphin_U_LTS_AOSP_34: sdk_post_sync sdk_post_sync_U
 	echo SKIP
-android_build_dolphin_U_AOSP_34:
+android_build_dolphin_U_LTS_AOSP_34:
 #		-p vendor/synaptics/platypus/configs/aosp_platypus_ul
 	cd $(CITY)/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
 		-p vendor/synaptics/dolphin/configs/aosp_dolphin_ul \
