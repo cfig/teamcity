@@ -107,7 +107,7 @@ android_t_gms_init: | $(CITY)/$(theCmd)/android_t
 android_u_aosp_init: | $(CITY)/$(theCmd)/android_u
 	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-aosp.xml --depth=1
 android_u_aosp_init_114_lts: | $(CITY)/$(theCmd)/android_u
-	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b rel_branch/vssdk/v1.14/202412051605 -m syna-aosp.xml
+	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b rel_branch/vssdk/v1.14/202412051605 -m syna-aosp.xml --depth=100
 android_u_gms_init: | $(CITY)/$(theCmd)/android_u
 	cd $(CITY)/$(theCmd)/android_u  && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b dev_branch/android_u/master -m syna-tv-dev.xml --depth=100
 android_b_aosp_init: | $(CITY)/$(theCmd)/android_b
@@ -125,7 +125,7 @@ sdk_110_init: | $(CITY)/$(theCmd)/s
 sdk_init: | $(CITY)/$(theCmd)/s
 	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b dev_branch/master -m vssdk.xml --depth=1
 sdk_init_114_lts: | $(CITY)/$(theCmd)/s
-	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b rel_branch/vssdk/v1.14/202412051605 -m vssdk.xml
+	cd $(CITY)/$(theCmd)/s && repo init -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b rel_branch/vssdk/v1.14/202412051605 -m vssdk.xml --depth=100
 sdk_baklava_init: | $(CITY)/$(theCmd)/s
 	cd $(CITY)/$(theCmd)/s && repo init --git-lfs -u ssh://sc-debu-git.synaptics.com:29420/debu/manifest -b dev_branch/master -m vssdk.xml
 musen_sdk_init: | $(CITY)/$(theCmd)/s
