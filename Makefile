@@ -342,12 +342,11 @@ sdk_init_dolphin_U_LTS_AOSP_34: sdk_init_114_lts
 	echo DONE
 android_post_sync_dolphin_U_LTS_AOSP_34:
 	echo SKIP
-sdk_post_sync_dolphin_U_LTS_AOSP_34: sdk_post_sync sdk_post_sync_U
+sdk_post_sync_dolphin_U_LTS_AOSP_34: sdk_post_sync
 	echo SKIP
 android_build_dolphin_U_LTS_AOSP_34:
-#		-p vendor/synaptics/platypus/configs/aosp_platypus_ul
 	cd $(CITY)/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/aosp_dolphin_ul \
+		-p vendor/synaptics/dolphin/configs/aosp_dolphin_ul_rdk \
 		-m ../s
 
 # dolphin_U_GMS_34
