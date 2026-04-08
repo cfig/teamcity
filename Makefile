@@ -331,6 +331,7 @@ android_post_sync_dolphin_U_trunk_AOSP_34:
 sdk_post_sync_dolphin_U_trunk_AOSP_34: sdk_post_sync sdk_post_sync_U
 	echo SKIP
 android_build_dolphin_U_trunk_AOSP_34:
+	cd $(CITY)/$(theCmd)/android_u/ && lazybox repo_lfs
 	cd $(CITY)/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
 		-p vendor/synaptics/platypus/configs/aosp_platypus_ul_rdk \
 		-m ../s
