@@ -342,12 +342,13 @@ android_init_dolphin_U_LTS_AOSP_34: android_u_aosp_init_114_lts
 sdk_init_dolphin_U_LTS_AOSP_34: sdk_init_114_lts
 	echo DONE
 android_post_sync_dolphin_U_LTS_AOSP_34:
+	cd $(CITY)/$(theCmd)/android_u/vendor/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/platypus refs/changes/85/301385/3 && git cherry-pick FETCH_HEAD
 	echo SKIP
 sdk_post_sync_dolphin_U_LTS_AOSP_34: sdk_post_sync
 	echo SKIP
 android_build_dolphin_U_LTS_AOSP_34:
 	cd $(CITY)/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/aosp_dolphin_ul_rdk \
+		-p vendor/synaptics/dolphin/configs/aosp_dolphin_ul \
 		-m ../s
 
 # dolphin_U_GMS_34
