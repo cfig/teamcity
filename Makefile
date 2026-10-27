@@ -379,7 +379,7 @@ sdk_post_sync_dolphin_U_LTS_34: sdk_post_sync sdk_post_sync_U
 android_build_dolphin_U_LTS_34:
 	# done
 	cd $(CITY)/$(theCmd)/android_u && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/dolphin_ul \
+		-p vendor/synaptics/platypus/configs/platypus_sl \
 		-m ../s
 
 # dolphin_S_AOSP_31
