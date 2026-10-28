@@ -315,10 +315,11 @@ sdk_init_dolphin_B_AOSP_36: sdk_baklava_init
 android_post_sync_dolphin_B_AOSP_36:
 	echo SKIP
 sdk_post_sync_dolphin_B_AOSP_36: sdk_post_sync sdk_post_sync_B
+	cd /home/yu/v1/baklava/a/vendor/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/platypus refs/changes/86/308186/2 && git cherry-pick FETCH_HEAD
 	echo SKIP
 android_build_dolphin_B_AOSP_36:
 	cd $(CITY)/$(theCmd)/android_b && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/aosp_dolphin_bl_rdk \
+		-p vendor/synaptics/platypus/configs/aosp_platypus_bl_rdk \
 		-m ../s
 
 # dolphin_U_trunk_AOSP_34
