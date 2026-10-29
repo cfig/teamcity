@@ -203,34 +203,6 @@ android_build_platypus_S_GMS_30:
 		-p vendor/synaptics/platypus/configs/platypus_rl \
 		-m ../s
 
-# platypus_T_GMS_33
-android_init_platypus_T_GMS_33: android_t_gms_init
-	echo DONE
-sdk_init_platypus_T_GMS_33: sdk_init
-	echo DONE
-android_post_sync_platypus_T_GMS_33:
-	echo SKIP
-pre_compile_platypus_T_GMS_33: pre_compile_t t_common
-	echo $@ DONE
-android_build_platypus_T_GMS_33:
-	cd $(CITY)/$(theCmd)/android_t && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/platypus/configs/platypus_tl \
-		-m ../s
-
-# platypus_T_GMS_31
-android_init_platypus_T_GMS_31: android_t_gms_init
-	echo DONE
-sdk_init_platypus_T_GMS_31: sdk_init
-	echo DONE
-android_post_sync_platypus_T_GMS_31:
-	echo SKIP
-pre_compile_platypus_T_GMS_31: pre_compile_t t_common
-	echo $@ DONE
-android_build_platypus_T_GMS_31:
-	cd $(CITY)/$(theCmd)/android_t && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/platypus/configs/platypus_sl \
-		-m ../s
-
 # orca_S_GMS_31
 android_init_orca_S_GMS_31: | $(CITY)/$(theCmd)/android_s
 	cd $(CITY)/$(theCmd)/android_s && repo init -u ssh://sc-debu-git.synaptics.com:29420/by-projects/android/manifests -b wip_branch/vssdk/android_s/vs640/google_cert/202209221605 -m syna-s-tv-dev.xml
@@ -279,20 +251,6 @@ android_build_dolphin_S_GMS:
 		-p vendor/synaptics/platypus/configs/platypus_sl \
 		-m ../s
 
-# dolphin_T_AOSP_33
-android_init_dolphin_T_AOSP_33: android_t_aosp_init
-	echo DONE
-sdk_init_dolphin_T_AOSP_33: sdk_init
-	echo DONE
-android_post_sync_dolphin_T_AOSP_33:
-	echo SKIP
-pre_compile_dolphin_T_AOSP_33: pre_compile_t t_common
-	echo $@ DONE
-android_build_dolphin_T_AOSP_33:
-	cd $(CITY)/$(theCmd)/android_t && ./vendor/synaptics/build/build_androidtv \
-		-p vendor/synaptics/dolphin/configs/aosp_dolphin_tl \
-		-m ../s
-
 # dolphin_B_GMS_36
 android_init_dolphin_B_GMS_36: android_b_gms_init
 	echo DONE
@@ -315,7 +273,7 @@ sdk_init_dolphin_B_AOSP_36: sdk_baklava_init
 android_post_sync_dolphin_B_AOSP_36:
 	echo SKIP
 sdk_post_sync_dolphin_B_AOSP_36: sdk_post_sync sdk_post_sync_B
-	cd /home/yu/v1/baklava/a/vendor/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/platypus refs/changes/86/308186/2 && git cherry-pick FETCH_HEAD
+	cd $(CITY)/$(theCmd)/android_b/vendor/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/platypus refs/changes/86/308186/2 && git cherry-pick FETCH_HEAD
 	echo SKIP
 android_build_dolphin_B_AOSP_36:
 	cd $(CITY)/$(theCmd)/android_b && ./vendor/synaptics/build/build_androidtv \
