@@ -273,7 +273,6 @@ sdk_init_dolphin_B_AOSP_36: sdk_baklava_init
 android_post_sync_dolphin_B_AOSP_36:
 	echo SKIP
 sdk_post_sync_dolphin_B_AOSP_36: sdk_post_sync sdk_post_sync_B
-	cd $(CITY)/$(theCmd)/android_b/vendor/synaptics/platypus && git fetch ssh://yyu@gerrit-sha.synaptics.com:29420/by-projects/android/platform/vendor/synaptics/platypus refs/changes/86/308186/2 && git cherry-pick FETCH_HEAD
 	echo SKIP
 android_build_dolphin_B_AOSP_36:
 	cd $(CITY)/$(theCmd)/android_b && ./vendor/synaptics/build/build_androidtv \
